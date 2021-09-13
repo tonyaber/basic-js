@@ -17,7 +17,7 @@ export default function createDreamTeam(members) {
   if (!Array.isArray(members) || !members.length) {
     return false;
   }
-  return members.filter(item => typeof (item) === 'string')
+  return members.slice().filter(item => typeof (item) === 'string')
     .map(item => item.trim().slice(0, 1).toUpperCase())
     .sort()
     .join('');

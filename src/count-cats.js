@@ -18,5 +18,5 @@ export default function countCats(backyard) {
   if (!Array.isArray(backyard) || !backyard.length) {
     return false;
   }
-  return backyard.flat().filter(item => item === '^^').length;
+  return backyard.slice().flat().filter(item => item === '^^').length;
 }

@@ -1,4 +1,5 @@
 import { NotImplementedError } from '../extensions/index.js';
+import getEmailDomain from './st-get-email-domain.js';
 
 /**
  * Given matrix, a rectangular matrix of integers,
@@ -16,7 +17,15 @@ import { NotImplementedError } from '../extensions/index.js';
  *
  * The result should be 9
  */
-export default function getMatrixElementsSum(/* matrix */) {
-  throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
+export default function getMatrixElementsSum(matrix) {
+  let sum = matrix[0].reduce((acc, item) => acc += item);
+
+  for (let i = 1; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+      if (matrix[i - 1][j] != 0) {
+        sum += matrix[i][j]
+      }
+    }
+  }
+  return sum;
 }
