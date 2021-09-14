@@ -18,6 +18,6 @@ export default function getSumOfDigits(n) {
   }
   const sum = n.toString().split('').reduce((acc, item) => acc = Number(acc) + Number(item));
 
-  return getSumOfDigits(sum)
+  return getSumOfDigits(sum);
 }
-console.log(getSumOfDigits(91))
+

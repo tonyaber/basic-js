@@ -20,12 +20,21 @@ import { NotImplementedError } from '../extensions/index.js';
  * 
  */
 export default class VigenereCipheringMachine {
-  encrypt() {
+  encrypt(message = null, key = null) {
+    if (message === null || key === null) {
+      throw new Error('Incorrect arguments!')
+    }
     throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+
+
   }
-  decrypt() {
+  decrypt(message = null, key = null) {
+    if (message === null || key === null) {
+      throw new Error('Incorrect arguments!')
+    }
     throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
   }
 }
+//const directMachine = new VigenereCipheringMachine();
+//console.log(directMachine.encrypt('AEIHQX SX DLLU!', 'alphonse'))
+
