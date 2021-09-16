@@ -37,4 +37,7 @@ export default class VigenereCipheringMachine {
 }
 //const directMachine = new VigenereCipheringMachine();
 //console.log(directMachine.encrypt('AEIHQX SX DLLU!', 'alphonse'))
+//const directMachine = new VigenereCipheringMachine();
+//console.log(directMachine.encrypt('AEIHQX SX DLLU!', 'alphonse'))
+
 

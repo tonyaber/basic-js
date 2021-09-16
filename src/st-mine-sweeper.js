@@ -25,41 +25,21 @@ import { NotImplementedError } from '../extensions/index.js';
  */
 
 export default function minesweeper(matrix) {
-  const mines = matrix.slice().map(item => item.map(el => el = 0));
-  for (let i = 0; i < matrix.length; i++) {
-    const up = i > 0;
-    const down = i < matrix.length;
-    for (let j = 0; j < matrix[i].length; j++) {
-      if (!matrix[i][j]) {
+  const mines = new Array(matrix.length+2).fill('').map(item=>new Array(matrix[0].length+2).fill(0));
+  for (let i = 1; i < mines.length-1; i++) {
+    for (let j = 1; j < mines[i].length-1; j++) {
+      if (!matrix[i-1][j-1]) {
         continue;
       }
-      const left = j > 0;
-      const rigth = j < matrix[i].length;
-      if (up) {
-        mines[i - 1][j]++;
-        if (left) {
-          mines[i - 1][j - 1]++;
-        }
-        if (rigth) {
-          mines[i - 1][j + 1]++;
-        }
-      }
-      if (left) {
-        mines[i][j - 1]++;
-      }
-      if (rigth) {
-        mines[i][j + 1]++;
-      }
-      if (down) {
-        mines[i + 1][j]++;
-        if (left) {
-          mines[i + 1][j - 1]++;
-        }
-        if (rigth) {
-          mines[i + 1][j + 1]++;
-        }
-      }
+      mines[i - 1][j]++;
+      mines[i - 1][j - 1]++;
+      mines[i - 1][j + 1]++;
+      mines[i][j - 1]++;
+      mines[i][j + 1]++;
+      mines[i + 1][j]++;
+      mines[i + 1][j - 1]++;
+      mines[i + 1][j + 1]++;    
     }
-  }
-  return mines
+  }  
+  return mines.slice(1, -1).map(item => item.slice(1, -1))
 }
